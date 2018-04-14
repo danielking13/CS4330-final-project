@@ -80,6 +80,19 @@ class ExtensionMethods2
 Reflection
 
 * What reflection abilities are supported?
+
+ Reflection is used to discover information about a  program entity at run time and to create instance of a type at runtime.
+ Most of the classes and interfaces needed for reflection are found in the System.Reflection namespace.
+ 
+ In the System.Reflection namespace, these are the main classes defined:
+ 
+|  Assembly       | Represents an assembly|
+| EventInfo       |This class holds information for a given event.|
+| FieldInfo       |This class holds information for a given field.|
+| MemberInfo      |Class is the abstract base class for classes used to obtain information about all members of a class. |
+| MethodInfo      |This class contains information for a given method.|
+| ConstructorInfo |This class contains information for a given constructor.|
+
 * How is reflection used?
 
 Memory management
