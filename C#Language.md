@@ -45,6 +45,19 @@ Interfaces / protocols
 
 Inheritance / extension
 
+- All classes derive from System.Object and inherit its methods.
+```C#
+public class WorkItem
+{
+//some code about WorkItem. WorkItem inherits methods from Object.
+}
+
+public class ChangeRequest : WorkItem 
+{
+// ChangeRequest extends WorkItem
+}
+```
+
 Reflection
 
 * What reflection abilities are supported?
