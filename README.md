@@ -1,2 +1,6 @@
-# CS4330-final-project
-Comparison of Java and C#
+# Comparison of Java and C#
+
+## Team members
+Daniel King
+
+Julia Wopata
