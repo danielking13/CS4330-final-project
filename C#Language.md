@@ -57,6 +57,25 @@ public class ChangeRequest : WorkItem
 // ChangeRequest extends WorkItem
 }
 ```
+Extension methods are used to let you 'add' methods to existing types when you don't control the type being extended and you don't want to force whoever is implementing it to provide code that can be done using the existing methods.
+
+```C#
+class ExtensionMethods2    
+{
+    
+    static void Main()
+    {            
+        int[] ints = { 10, 45, 15, 39, 21, 26 };
+        var result = ints.OrderBy(g => g);
+        foreach (var i in result)
+        {
+            System.Console.Write(i + " ");
+        }           
+    }        
+}
+//Output: 10 15 21 26 39 45
+
+```
 
 Reflection
 
