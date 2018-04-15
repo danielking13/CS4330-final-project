@@ -37,7 +37,6 @@ They are called packages in Java and must be at the top of a Java file as follow
   class Hello {
     //Code here
   }
-  
 ```
 ### How are name spaces used?
 They are used to organize files and avoid class conflicts. 
@@ -45,15 +44,76 @@ They are used to organize files and avoid class conflicts.
 ## Types
 
 * What types does the language support?
+
+There are 8 primitive data types supported by java. They are: 
+```java
+byte
+short
+int
+long
+float
+double
+boolean
+char
+```
+It also supports reference types such as classes, interfaces, and arrays.
+
 * Are both reference and value types supported?
+
+Yes
+
 * Can new value types be created?
+
+No, only reference types. Java does not have structs.
 
 ## Classes
 
 * Defining
+
+A new class is defined as follows: 
+```java 
+  class MyClass {
+      //Code in the class
+  }
+```
+
 * Creating new instances
+
+An instance of a class is created as follows: 
+```java 
+  class MyClass {
+      //Instantiation of class named NewClass with default constructor
+      NewClass class = new NewClass();
+  } 
+```
+
 * Constructing/initializing
+
+```java 
+  class MyClass {
+      
+      MyClass() {
+          //Default constructor
+      }
+      
+      MyClass(Type field) {
+          //Constructor with a parameter
+      }    
+  }
+```
+
 * Destructing/de-initializing
+
+```java 
+  class MyClass {
+      
+     protected void finalize() throws Throwable {
+        // Invoke the finalizer of the superclass
+        super.finalize();
+        //other code to handle files etc
+     }
+  }
+```
 
 Instance reference name in data type (class)
 
