@@ -1,27 +1,54 @@
 # Java
 
-Language purpose/genesis
+## Language purpose/genesis
 
-* Why was the language created?
-* What problems was the language trying to address?
-* Is the language a reaction to a previous language or a replacement for another language?
+### Why was the language created?
 
-Unique features of the language
+Java was originally created to work for interactive television. However, it was too advanced 
+for this at the time, and its dynamic was changed to work more universally across various systems.
+Essentially the code was to be written once and used everywhere. 
 
-* Does the language have any particularly unique features?
+### What problems was the language trying to address?
 
-Name spaces
+It was created with five different goals it was attempting to achieve in order to be superior to 
+previous languages. These goals were: 
+* Simplicity, Object Oriented and Familiar
+* Robust and Secure --> addressing reliability and security concerns
+* Architecture Neutral and Portable --> addresses execution of programs on any OS or environment.  
+* High Performance --> addresses performance issues
+* Interpreted, Threaded, and Dynamic --> addresses heavy compilation, concurrency, and linking issues
 
-* How are name spaces implemented?
-* How are name spaces used?
+### Is the language a reaction to a previous language or a replacement for another language?
+It was developed as somewhat of a replacement for C++. It was to do everything that C++ did while 
+removing the hassle of lower level tasks such as memory management. 
 
-Types
+## Unique features of the language
+
+### Does the language have any particularly unique features?
+Not particularly. The main thing is that it is Platform Indepedent/Architecture Neutral, which is 
+fairly rare for languages. 
+
+## Name spaces 
+### How are name spaces implemented?
+They are called packages in Java and must be at the top of a Java file as follows: 
+```java 
+  package HelloWorld; 
+  
+  class Hello {
+    //Code here
+  }
+  
+```
+### How are name spaces used?
+They are used to organize files and avoid class conflicts. 
+
+## Types
 
 * What types does the language support?
 * Are both reference and value types supported?
 * Can new value types be created?
 
-Classes
+## Classes
 
 * Defining
 * Creating new instances
