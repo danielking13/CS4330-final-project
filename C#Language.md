@@ -1,68 +1,120 @@
 # C# Language
 
-Language purpose/genesis
+## Language purpose/genesis
 
-* Why was the language created?
-* What problems was the language trying to address?
-* Is the language a reaction to a previous language or a replacement for another language?
+#### Why was the language created?
+C# was created with the purpose of being a better alternative to Java.
+Microsoft wanted to gain the edge in having an Object Oriented, Simple, and Modern language.
 
-Unique features of the language
+#### What problems was the language trying to address?
+Similar to Java, C# was essentially addressing problems regarding low level programming
+such as pointers and memory management. However, it also focused on being a better
+version of Java. C# was essentially Microsoft's attempt to make an Object Oriented
+language that was simple and modern. It also addressed problems such as portability and
+internalization.  
 
-* Does the language have any particularly unique features?
-Name spaces
+#### Is the language a reaction to a previous language or a replacement for another language?
+C# was Microsoft's reaction to Java. It was very similar at first, but has branched
+off fairly significantly since version 2.  
 
-* How are name spaces implemented?
-* How are name spaces used?
+## Unique features of the language
+#### Does the language have any particularly unique features?
+It has several rather unusual feature for a strongly typed language. Some particularly
+relevant features are LINQ (Language-Integrated Query), delegation, extension
+methods, properties, and the *var* keyword.  
 
-Types
+## Name spaces
+#### How are name spaces implemented?
+
+```csharp
+namespace MyApplication
+{
+  // The content to reside in the MyApplication namespace is placed here.
+}
+```
+
+#### How are name spaces used?
+They are used for file organization and to allow for classes to have the
+same name. It also gives the C# compiler context for which class it is
+supposed to be using. The *using* keyword can be used to tell the compiler
+explicitly what namespaces you will be using in your program so that you
+don't have to type out the names.
+For example:
+
+```csharp
+System.Console.WriteLine();
+```
+vs
+
+```csharp
+using System;
+// other code here
+Console.WriteLine();
+```
+
+## Types
 
 * What types does the language support?
 * Are both reference and value types supported?
-* Can new value types be created?
+#### Can new value types be created?
+Yes, in the form of structs. Below is an example
+```csharp
+public struct CoOrds
+{
+    public int x, y;
 
-Classes
+    public CoOrds(int p1, int p2)
+    {
+        x = p1;
+        y = p2;
+    }
+}
+```
+
+## Classes
 
 * Defining
 * Creating new instances
 * Constructing/initializing
 * Destructing/de-initializing
 
-Instance reference name in data type (class)
+## Instance reference name in data type (class)
 
 * this? self?
 
-Properties
+## Properties
 
 * Getters and setters…write your own or built in?
 * Backing variables?
 * Computed properties?
 
-Interfaces / protocols
+## Interfaces / protocols
 
 * What does the language support?
 * What abilities does it have?
 * How is it used?
 
-Inheritance / extension
+## Inheritance / extension
 
-- All classes derive from System.Object and inherit its methods.
-```C#
+All classes derive from System.Object and inherit its methods.
+```csharp
 public class WorkItem
 {
 //some code about WorkItem. WorkItem inherits methods from Object.
 }
 
-public class ChangeRequest : WorkItem 
+public class ChangeRequest : WorkItem
 {
 // ChangeRequest extends WorkItem
 }
 ```
+
 Extension methods are used to let you 'add' methods to existing types when you don't control the type being extended and you don't want to force whoever is implementing it to provide code that can be done using the existing methods.
 
-```C#
+```csharp
 class ExtensionMethods2    
 {
-    
+
     static void Main()
     {            
         int[] ints = { 10, 45, 15, 39, 21, 26 };
@@ -83,9 +135,9 @@ Reflection
 
  Reflection is used to discover information about a  program entity at run time and to create instance of a type at runtime.
  Most of the classes and interfaces needed for reflection are found in the System.Reflection namespace.
- 
+
  In the System.Reflection namespace, these are the main classes defined:
- 
+
 |  Assembly       | Represents an assembly|
 | EventInfo       |This class holds information for a given event.|
 | FieldInfo       |This class holds information for a given field.|
