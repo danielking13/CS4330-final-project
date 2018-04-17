@@ -53,9 +53,29 @@ Console.WriteLine();
 ```
 
 ## Types
+#### What types does the language support?
+Value types
+* Signed integral: sbyte, short, int, long
+* Unsigned integral: byte, ushort, uint, ulong
+* Unicode characters: char
+* IEEE floating point: float, double
+* High-precision decimal: decimal
+* Boolean: bool
+* User-defined types of the form enum E {...}
+* User-defined types of the form struct S {...}
+* Extensions of all other value types with a null value
 
-* What types does the language support?
-* Are both reference and value types supported?
+Reference types
+* Ultimate base class of all other types: object
+* Unicode strings: string
+* User-defined types of the form class C {...}
+* User-defined types of the form interface I {...}
+* Single- and multi-dimensional arrays, for example, int[] and int[,]
+* User-defined types of the form delegate int D(...)
+
+#### Are both reference and value types supported?
+Yes.
+
 #### Can new value types be created?
 Yes, in the form of structs. Below is an example
 ```csharp
@@ -73,18 +93,68 @@ public struct CoOrds
 
 ## Classes
 
-* Defining
-* Creating new instances
-* Constructing/initializing
-* Destructing/de-initializing
+#### Defining
+```csharp
+public class MyClass
+{
+    //Code in class such as methods, fields, etc.
+}
+```
+
+#### Creating new instances
+An instance of a class is created as follows:
+```csharp
+//Instantiation of class named NewClass with default constructor
+MyClass class = new MyClass();
+```
+#### Constructing/initializing
+```csharp
+public class Point
+{
+    public int x, y;
+
+    public Point() {
+      //constructor with no parameters
+    }
+    //constructor with parameters
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+}
+```
+
+#### Destructing/de-initializing
+Similar to Java there is no official destructor method. Instead you
+use a Finalizer method. For example, the following is a declaration of
+a finalizer for the Car class.
+```csharp
+class Car
+{
+    ~Car()  // destructor
+    {
+        // cleanup statements...
+    }
+}
+```
 
 ## Instance reference name in data type (class)
-
-* this? self?
+#### this? self?
+C# uses this to refer to a class data type as follows:
+```csharp
+public Employee(string name, string alias)
+{
+    // Use this to qualify the fields, name and alias:
+    this.name = name;
+    this.alias = alias;
+}
+```
 
 ## Properties
+#### Getters and setters…write your own or built in?
 
-* Getters and setters…write your own or built in?
+
 * Backing variables?
 * Computed properties?
 
