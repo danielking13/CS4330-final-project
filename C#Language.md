@@ -54,7 +54,7 @@ Console.WriteLine();
 
 ## Types
 #### What types does the language support?
-Value types
+Value Types
 * Signed integral: sbyte, short, int, long
 * Unsigned integral: byte, ushort, uint, ulong
 * Unicode characters: char
@@ -65,7 +65,7 @@ Value types
 * User-defined types of the form struct S {...}
 * Extensions of all other value types with a null value
 
-Reference types
+Reference Types
 * Ultimate base class of all other types: object
 * Unicode strings: string
 * User-defined types of the form class C {...}
@@ -155,14 +155,85 @@ public Employee(string name, string alias)
 #### Getters and setters…write your own or built in?
 
 
-* Backing variables?
-* Computed properties?
+#### Backing variables?
+Can be explicitly declared or left to be done by the compiler. If you need
+more complex logic the first example is how you should implement it.   
+
+```csharp
+public class Date
+{
+    private int month = 7;  // Backing store
+
+    public int Month {
+        get {
+            return month;
+        }
+        set {
+            if ((value > 0) && (value < 13)) {
+                month = value;
+            }
+        }
+    }
+}
+```
+
+vs
+
+```csharp
+//backing variable is made by the compiler
+public int Month { get; set; }
+```
+
+#### Computed properties?
+Yes, see an example below.
+```csharp
+public class Person
+{
+    private int age;
+    private int yearOfBirth;
+
+    public int Age {
+        get {
+            return 2018 - yearOfBirth;
+        }
+        set {
+            age = value;
+        }
+    }
+}
+```
 
 ## Interfaces / protocols
 
-* What does the language support?
-* What abilities does it have?
-* How is it used?
+#### What does the language support?
+Interfaces
+#### What abilities does it have?
+It contains only the signatures of methods, properties, events or indexers. These have to be implemented later by a struct or class.
+#### How is it used?
+```csharp
+interface ISampleInterface
+{
+    void SampleMethod();
+}
+
+class ImplementationClass : ISampleInterface
+{
+    // Explicit interface member implementation:
+    void ISampleInterface.SampleMethod()
+    {
+        // Method implementation.
+    }
+
+    static void Main()
+    {
+        // Declare an interface instance.
+        ISampleInterface obj = new ImplementationClass();
+
+        // Call the member.
+        obj.SampleMethod();
+    }
+}
+```
 
 ## Inheritance / extension
 
