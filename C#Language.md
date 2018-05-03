@@ -270,7 +270,7 @@ class ExtensionMethods2
 
 ```
 
-Reflection
+## Reflection
 
 * What reflection abilities are supported?
 
@@ -279,12 +279,12 @@ Reflection
 
  In the System.Reflection namespace, these are the main classes defined:
 
-|  Assembly       | Represents an assembly|
-| EventInfo       |This class holds information for a given event.|
-| FieldInfo       |This class holds information for a given field.|
-| MemberInfo      |Class is the abstract base class for classes used to obtain information about all members of a class. |
-| MethodInfo      |This class contains information for a given method.|
-| ConstructorInfo |This class contains information for a given constructor.|
+|  Assembly       | Represents an assembly |
+| EventInfo       | This class holds information for a given event. |
+| FieldInfo       | This class holds information for a given field. |
+| MemberInfo      | Class is the abstract base class for classes used to obtain information about all members of a class. |
+| MethodInfo      | This class contains information for a given method. |
+| ConstructorInfo | This class contains information for a given constructor. |
 
 * How is reflection used?
 
