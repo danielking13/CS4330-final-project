@@ -279,6 +279,12 @@ class ExtensionMethods2
 
  In the System.Reflection namespace, these are the main classes defined:
  
+| Classes   | About  | Test  |
+|---|---|---|
+|  Assembly   | Represents an assembly  | dsa  |
+|  EventInfo |  This class holds information for a given event. | dskl  |
+| FieldInfo  | This class holds information for a given field.  |  dfsa |
+ 
 | Classes         | About | Cool |
 | ---             | --- | d0ds  |
 |  Assembly       | Represents an assembly | dsa |
