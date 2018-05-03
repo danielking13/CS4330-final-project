@@ -290,10 +290,15 @@ class ExtensionMethods2
 
 * How is reflection used?
 
-Memory management
+Reflection is used in C# to retrieve metadata on types at runtime. Reflection is used to inspect metadata of the types in your program at runtime. So you can retrieve information on the loaded assemblies and the types defined in them.
+
+## Memory management
 
 * How is it handled?
+Memory allocated on the heap is managed automatically.
+ 
 * How does it work?
+
 * Garbage collection?
 * Automatic reference counting?
 
