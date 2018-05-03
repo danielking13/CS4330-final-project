@@ -193,14 +193,17 @@ class ImplementationClass implements SampleInterface {
 ```
 Inheritance / extension
 
-Reflection
+## Reflection
 
 * What reflection abilities are supported?
 * How is reflection used?
 
-Memory management
+## Memory management
 
 * How is it handled?
+
+Memory allocated on the heap is managed automatically.
+
 * How does it work?
 * Garbage collection?
 * Automatic reference counting?
