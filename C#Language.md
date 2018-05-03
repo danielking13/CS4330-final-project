@@ -278,7 +278,8 @@ class ExtensionMethods2
  Most of the classes and interfaces needed for reflection are found in the System.Reflection namespace.
 
  In the System.Reflection namespace, these are the main classes defined:
-
+| Classes         | About |
+| ---             | ---  |
 |  Assembly       | Represents an assembly |
 | EventInfo       | This class holds information for a given event. |
 | FieldInfo       | This class holds information for a given field. |
