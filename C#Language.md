@@ -320,13 +320,77 @@ C# uses the ```csharp null ``` keyword as a literal that represnts a null refere
 
 #### Does the language have features for handling null/nil references?
 
-
+C# has NullRefereceExceptions that occur when you try to use a method with the value of null. 
 
 ## Errors and exception handling
 
+Exceptions handling is built upon 'try', 'catch', 'finally', and 'throw'.
+
+| Classes   | About  |
+|---|---|
+|  try   | A try block identifies a block of code for which particular exceptions is activated. It is followed by one or more catch blocks. |
+|  catch |  A program catches an exception with an exception handler at the place in a program where you want to handle the problem. The catch keyword indicates the catching of an exception. |
+| finally | The finally block is used to execute a given set of statements, whether an exception is thrown or not thrown. For example, if you open a file, it must be closed whether an exception is raised or not. |
+|  throw  | A program throws an exception when a problem shows up. This is done using a throw keyword. |
+
+```csharp
+try {
+   // statements causing exception
+} catch( ExceptionName e1 ) {
+   // error handling code
+} catch( ExceptionName e2 ) {
+   // error handling code
+} catch( ExceptionName eN ) {
+   // error handling code
+} finally {
+   // statements to be executed
+}
+```
+
+Exceptions are handled by classes. These classes are derived from the System.Exception class. Other classes derived from this are System.ApplicationException and System.SystemException.
+
+System.ApplicationException supports exceptions genereated by applications programs. The excpetions are defined by the programmers.
+
+System.SystemException is the base class for all predefined system exceptions.
+
+An example of throwing an exception when dividing by zero:
+
+```csharp
+using System;
+
+namespace ErrorHandlingApplication {
+   class DivNumbers {
+      int result;
+      
+      DivNumbers() {
+         result = 0;
+      }
+      public void division(int num1, int num2) {
+         try {
+            result = num1 / num2;
+         } catch (DivideByZeroException e) {
+            Console.WriteLine("Exception caught: {0}", e);
+         } finally {
+            Console.WriteLine("Result: {0}", result);
+         }
+      }
+      static void Main(string[] args) {
+         DivNumbers d = new DivNumbers();
+         d.division(25, 0);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+```csharp
+Exception caught: System.DivideByZeroException: Attempted to divide by zero. 
+at ...
+Result: 0
+```
 #### Lambda expressions, closures, or functions as types
 
-Implementation of listeners and event handlers
+## Implementation of listeners and event handlers
 
 Singleton
 
