@@ -272,7 +272,7 @@ class ExtensionMethods2
 
 ## Reflection
 
-* What reflection abilities are supported?
+#### What reflection abilities are supported?
 
  Reflection is used to discover information about a  program entity at run time and to create instance of a type at runtime.
  Most of the classes and interfaces needed for reflection are found in the System.Reflection namespace.
@@ -294,26 +294,37 @@ Reflection is used in C# to retrieve metadata on types at runtime. Reflection is
 
 ## Memory management
 
-* How is it handled?
-Memory allocated on the heap is managed automatically.
+#### How is it handled?
+
+Memory allocated on the heap is managed automatically. It is required that all resources be allocated from the managed heap. Objects are automatically freed when they are no longer needed by the application.
  
-* How does it work?
+#### How does it work?
 
-* Garbage collection?
-* Automatic reference counting?
+When a process is initialized, the runtime reserves a contiguous region of address space (the managed heap) with no storage allocated for it. This heap also maintains a pointer which indicates where the next object will be allocated within the heap. The pointer is initially set to the base address of the reserved address space region. When the 'new' operator is used to create an object, it is first checked that there are enough bytes. If there are not enough bytes, then a collection of unused memory is performed.
 
-Comparisons of references and values
+#### Garbage collection?
 
-* How are values compared? (i.e. comparing two strings)
+The garbage collector checks if there are any objects in the heap no longer being used. The memory of these objects is reclaimed when they are not used. If there is no more memory available then an OutOfMemoryException is thrown. The garbage collector checks all of the roots and creates a graph that contains the set of all objects somehow reachable by the application's roots. If an object is not in the graph, it isn't accessible and considered garbage.
 
-Null/nil references
+#### Automatic reference counting?
 
-* Which does the language use? (null/nil/etc)
-* Does the language have features for handling null/nil references?
+Automatic reference counting manages object life cycles by keeping track of all valid references to an object with an internal retain count. There is no reference-counted objects to be used explicitly in C# because garbage collection is used.
 
-Errors and exception handling
+## Comparisons of references and values
 
-Lambda expressions, closures, or functions as types
+#### How are values compared? (i.e. comparing two strings)
+
+## Which does the language use? (null/nil/etc)
+
+C# uses the ```csharp null ``` keyword as a literal that represnts a null reference.
+
+#### Does the language have features for handling null/nil references?
+
+
+
+## Errors and exception handling
+
+#### Lambda expressions, closures, or functions as types
 
 Implementation of listeners and event handlers
 
