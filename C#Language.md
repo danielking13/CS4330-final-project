@@ -314,6 +314,39 @@ Automatic reference counting manages object life cycles by keeping track of all 
 
 #### How are values compared? (i.e. comparing two strings)
 
+For Case Sensitive Comparison
+
+```csharp
+string string1 = "Something";
+string string2 = "Something";
+
+if (string1.Equals(string2,StringComparison.Ordinal))
+{
+ //Strings are Equal
+}
+else
+{
+ //Strings are not Equal
+}
+```
+
+For Case Insensitive Comparison
+
+```csharp
+string string1 = "Something";
+string string2 = "Something";
+
+if (string1.Equals(string2,StringComparison.OrdinalIgnoreCase))
+{
+ //Strings are Equal
+}
+else
+{
+ //Strings are not Equal
+}
+```
+
+
 #### Which does the language use? (null/nil/etc)
 
 C# uses the ```null ``` keyword as a literal that represnts a null reference.
