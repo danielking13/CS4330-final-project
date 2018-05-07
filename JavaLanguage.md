@@ -333,8 +333,57 @@ public class MyClass
 ## Singleton
 
 #### How is a singleton implemented?
+
+A singleton class has:
+
+| Type  | About  |
+|---|---|
+|  Static member | This contains the instance of the singleton class. |
+|  Private constructor |  This will prevent anybody else to instantiate the Singleton class. |
+| Static public method | This provides the global point of access to the Singleton object and returns the instance to the client calling class. |
+
 #### Can it be made thread-safe?
+
+Yes, by using a synchronized keyword to prevent multiple threads from accessing the singleton instance while a thread is inside the method to get the singleton instance:
+
+```java 
+public static volatile SingletonExample getSingletonInstance() {
+        if (null == singletonInstance) {
+            synchronized (SingletonExample.class){
+                    if (null == singletonInstance) {
+            singletonInstance = new SingletonExample();
+            }
+        }
+        }
+        return singletonInstance;
+    }
+```
+
 #### Can the singleton instance be lazily instantiated?
+
+Yes:
+
+```java
+
+public class SingletonExample {
+    // Static member holds only one instance of the
+    // SingletonExample class
+    private static SingletonExample singletonInstance;
+    // SingletonExample prevents any other class from instantiating
+    private SingletonExample() {
+    }
+    // Providing Global point of access
+    public static SingletonExample getSingletonInstance() {
+        if (null == singletonInstance) {
+            singletonInstance = new SingletonExample();
+        }
+        return singletonInstance;
+    }
+    public void printSingleton(){
+        System.out.println("Inside print Singleton");
+    }
+}
+```
 
 ## Procedural programming
 
