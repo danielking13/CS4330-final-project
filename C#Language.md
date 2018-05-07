@@ -314,6 +314,22 @@ Automatic reference counting manages object life cycles by keeping track of all 
 
 #### How are values compared? (i.e. comparing two strings)
 
+== can be used to compare null values
+
+```csharp 
+string x = null;
+string y = null;
+
+if (x.Equals(y)) // Messes up
+
+if (x == y) // Yes
+```
+You can use ```object.Equals``` to avoid the problem with null comparisons
+
+```csharp
+if (object.Equals(x, y)) // Fine even if x or y is null
+```
+
 For Case Sensitive Comparison
 
 ```csharp
