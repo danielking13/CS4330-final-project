@@ -316,7 +316,7 @@ Automatic reference counting manages object life cycles by keeping track of all 
 
 ### Which does the language use? (null/nil/etc)
 
-C# uses the ```csharp null ``` keyword as a literal that represnts a null reference.
+C# uses the ```null ``` keyword as a literal that represnts a null reference.
 
 #### Does the language have features for handling null/nil references?
 
@@ -427,7 +427,7 @@ public static Func<int,int> GetAFunc()
 ```
 ## Implementation of listeners and event handlers
 
-C# has an ```csharp EventHandler ```. C#'s EventHandler is a delegate or strongly typed pointer to method that handles an event.
+C# has an ``` EventHandler ```. C#'s EventHandler is a delegate or strongly typed pointer to method that handles an event.
 
 ```csharp
 Button.Click += new EventHandler(MyButton_Click); 
@@ -441,18 +441,81 @@ private void MyButton_Click(object sender, EventArgs e)
 ## Singleton
 
 #### How is a singleton implemented?
+A singleton is implemented by a single constructor which is private and parameterless. It has a static variable that holds a reference to the single created instance, if any. It is also necessary to have a public static means of getting the reference to the single created instance.
+
 #### Can it be made thread-safe?
+
+Yes
+
+```csharp
+public sealed class Singleton
+{
+    private static readonly Singleton instance = new Singleton();
+
+    // Explicit static constructor to tell C# compiler
+    // not to mark type as beforefieldinit
+    static Singleton()
+    {
+    }
+
+    private Singleton()
+    {
+    }
+
+    public static Singleton Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
+}
+```
+
 #### Can the singleton instance be lazily instantiated?
+
+Yes 
+
+```csharp
+public sealed class Singleton
+{
+    private Singleton()
+    {
+    }
+
+    public static Singleton Instance { get { return Nested.instance; } }
+        
+    private class Nested
+    {
+        // Explicit static constructor to tell C# compiler
+        // not to mark type as beforefieldinit
+        static Nested()
+        {
+        }
+
+        internal static readonly Singleton instance = new Singleton();
+    }
+}
+```
 
 ## Procedural programming
 
 #### Does the language support procedural programming?
 
+Yes. C# was designed to primarily support imperative (procedural) programming. This is where a developer writes codes that describes in detail the steps that the computer must take to accomplish the goal.
+
 ## Functional programming
 
 #### Does the language support functional programming?
 
+Functional programming involves composing the problem as a set of functions to be executed. The input and return type of each function is carefully defined. C# is used for procedural programming but has explicit language extensions taht support functional programming. These are lambda expressions and type interface. LINQ technology is a form of declarative functional programming.
+
 ## Multithreading
 
 #### Threads or thread-like abilities
+
+C# uses the System.Threading.Thread class to work with threads. It allows creating and accessing individual threads in a multithreaded application. A thread ends with the delegate passed to the Thread's constructor finishes executing. Once it ends, a thread cannot restart.
+
 #### How is multitasking accomplished?
+
+C# supports parallel execution of code through multithreading. A single thread is created automatically by the CLR and OS. this is made multithreaded by adding additional threads.
