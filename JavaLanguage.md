@@ -221,7 +221,35 @@ Errors and exception handling
 
 Lambda expressions, closures, or functions as types
 
-Implementation of listeners and event handlers
+## Implementation of listeners and event handlers
+
+Java has an ```java EventListener ```. The EventListener is a tagging interface that all event listener interfaces must extend. For example, the MouseListener. An EventListener is an object that implements an interface for event handling.
+
+```java
+public class MyClass
+{
+    Button myButton;
+
+    MyClass()
+    {
+        ...
+        myButton.addMouseListener(new ButtonHandler());
+    }
+
+    public class ButtonHandler implements MouseListener
+    {
+        public void mousePressed(MouseEvent e) {}
+        public void mouseReleased(MouseEvent e) {}
+        public void mouseEntered(MouseEvent e) {}
+        public void mouseExited(MouseEvent e) {}
+
+        public void mouseClicked(MouseEvent e)
+        {
+           doSomething("Mouse clicked", e);
+        }
+    }
+}
+```
 
 Singleton
 
