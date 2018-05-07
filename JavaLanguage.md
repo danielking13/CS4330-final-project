@@ -204,34 +204,101 @@ class Sparrow extends Bird {
 ## Reflection
 
 #### What reflection abilities are supported?
+The required classes for reflection are in the java.lang.reflect package. 
+ Relfection can be used to get the following information:
 
-The required classes for reflection are in the java.lang.reflect package. Relfection can be used to get the following information:
-
+| Information  | About  |
+|---|---|
+|  Class   | The getClass() method is used to get the name of the class to which an object belongs.  |
+|  Contructors |  The getConstructors() method is used to get the public constructors of the class to which an object belongs. |
+| Methods | The getMethods() method is used to get the public methods of the class to which an objects belongs. |
+|  Parameters  | getDeclaredMethod() : To create an object of method to be invoked. |
+| Fields  | getDeclaredMethod() : To create an object of method to be invoked. |
 
 #### How is reflection used?
 
+Reflection is used to get information about the class to which an object belongs. It also gives information about the methods of a class. Through reflection we can invoke methods at runtime irrespective of the access specifier used with them.
+
 ## Memory management
 
-* How is it handled?
+#### How is it handled?
 
-Memory allocated on the heap is managed automatically.
+Memory allocated on the heap is managed automatically. The heap is created when the JVM starts and increases or decreases in size while an application runs. 
 
-* How does it work?
-* Garbage collection?
-* Automatic reference counting?
+#### How does it work?
 
-Comparisons of references and values
+A heap is divided into two areas (generations) called the nursery (young) and old space. The nursery is for new objects. If the nursery becomes full then there is a special, 'young collection' that is run. If an object has lived long enough then it is promoted to the old space. If the old space becomes full then there is a process of 'old collection'.
 
-* How are values compared? (i.e. comparing two strings)
+#### Garbage collection?
 
-Null/nil references
+When the heap becomes full, the garbage is collected. During the garbage collection objects that are no longer used are cleared, thus making space for new objects.
 
-* Which does the language use? (null/nil/etc)
-* Does the language have features for handling null/nil references?
+#### Automatic reference counting?
 
-Errors and exception handling
+There is no automatic reference counting in Java. The garbage collector does the reference management for you.
 
-Lambda expressions, closures, or functions as types
+## Comparisons of references and values
+
+#### How are values compared? (i.e. comparing two strings)
+
+| Comparison  | About  |
+|---|---|
+|  a == b, a != b  | Compares two references -- not values. This is used to compare to see if a reference is null, to compare two enum values, or to check if they are the same object|
+|  a.equals(b) |  This compares to object values for equality i.e. the same value. |
+| a.compareTo(b) | Returns an int and tells if the values compared are less than, equal, or greater than.  |
+
+
+## Null/nil references
+
+#### Which does the language use? (null/nil/etc)
+
+Java uses null.
+
+#### Does the language have features for handling null/nil references?
+
+Java has the NullPointerException to handle an object reference that has a null value. It is a RuntimeException. A NullPointerException can occur:
+
+* Invoking a method from a null object.
+* Accessing or modifying a null object’s field.
+* Taking the length of null, as if it were an array.
+* Accessing or modifying the slots of null object, as if it were an array.
+* Throwing null, as if it were a Throwable value.
+* When you try to synchronize over a null object.
+
+## Errors and exception handling
+
+All exceptions are subtypes of ```java.lang.Exception``` class.
+This class is a subclass of the ```Throwable``` class.
+There is another subclass called ```Error``` derived from teh ```Throwable``` class.
+
+Exception has two main subclass: ```IOException``` and ```RuntimeException```
+There are three categories of exceptions in Java:
+
+| Type  | About  |
+|---|---|
+|  Checked Exceptions  | A checked exception is an exception that occurs at the compile time, these are also called as compile time exceptions. These exceptions cannot simply be ignored at the time of compilation, the programmer should take care of (handle) these exceptions. |
+|  Unchecked Exceptions |  An unchecked exception is an exception that occurs at the time of execution. These are also called as Runtime  |
+| Exceptions | These include programming bugs, such as logic errors or improper use of an API. Runtime exceptions are ignored at the time of compilation.  |
+
+Exceptions are handled with the true, catch, throw, and finally keywords.
+
+```java
+try {
+   // Protected code
+} catch (ExceptionType1 e1) {
+   // Catch block
+} catch (ExceptionType2 e2) {
+   // Catch block
+} catch (ExceptionType3 e3) {
+   // Catch block
+}finally {
+   // The finally block always executes.
+}
+```
+
+## Lambda expressions, closures, or functions as types
+
+Java implements closures, but it is limited compared to other languages. Java uses lambda expressions and anonymous classes. These can only access the final variables of the enclosing scope. Java only saves the value of free variables to let them be used inside lambda expressions. The compiler limites the type of variable that can be used inside lambda expressons to only final and effectivley final ones.
 
 ## Implementation of listeners and event handlers
 
@@ -263,21 +330,25 @@ public class MyClass
 }
 ```
 
-Singleton
+## Singleton
 
-* How is a singleton implemented?
-* Can it be made thread-safe?
-* Can the singleton instance be lazily instantiated?
+#### How is a singleton implemented?
+#### Can it be made thread-safe?
+#### Can the singleton instance be lazily instantiated?
 
-Procedural programming
+## Procedural programming
 
-* Does the language support procedural programming?
+#### Does the language support procedural programming?
 
-Functional programming
+Yes, Java is a procedural programming language.
 
-* Does the language support functional programming?
+## Functional programming
 
-Multithreading
+#### Does the language support functional programming?
 
-* Threads or thread-like abilities
-* How is multitasking accomplished?
+Java is not a functional programming language, but has support for functional programming. Lambdas were the 'solution' to allow functional programming in Java. They provide the ability to create functions at runtime which can then be passed/manipulated by other code.
+
+## Multithreading
+
+#### Threads or thread-like abilities
+#### How is multitasking accomplished?
