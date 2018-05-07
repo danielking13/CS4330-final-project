@@ -191,12 +191,24 @@ class ImplementationClass implements SampleInterface {
     }
 }
 ```
-Inheritance / extension
+## Inheritance / extension
+
+In Java, inheritance is supported. To inherit you use the ```extends``` keyword..
+
+```java
+class Sparrow extends Bird {
+   // fields and methods of sparrow
+}
+```
 
 ## Reflection
 
-* What reflection abilities are supported?
-* How is reflection used?
+#### What reflection abilities are supported?
+
+The required classes for reflection are in the java.lang.reflect package. Relfection can be used to get the following information:
+
+
+#### How is reflection used?
 
 ## Memory management
 
