@@ -314,7 +314,7 @@ Automatic reference counting manages object life cycles by keeping track of all 
 
 #### How are values compared? (i.e. comparing two strings)
 
-### Which does the language use? (null/nil/etc)
+#### Which does the language use? (null/nil/etc)
 
 C# uses the ```null ``` keyword as a literal that represnts a null reference.
 
@@ -388,7 +388,7 @@ Exception caught: System.DivideByZeroException: Attempted to divide by zero.
 at ...
 Result: 0
 ```
-### Lambda expressions, closures, or functions as types
+## Lambda expressions, closures, or functions as types
 
 C# supprts first class functions, or functions as types.
 
