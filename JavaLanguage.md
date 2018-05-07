@@ -400,4 +400,113 @@ Java is not a functional programming language, but has support for functional pr
 ## Multithreading
 
 #### Threads or thread-like abilities
+
+Multithreading is supported in Java. Threads are created by extending the ```Thread``` class and implementing the   ```Runnable``` interface.
+When creating a class that extends ```java.lang.Thread``` we can override the ```run()``` method in the class to start the life of a thread. An object of our class is created and the ```start()``` method is called. 
+
+```java
+// Java code for thread creation by extending
+// the Thread class
+class MultithreadingDemo extends Thread
+{
+    public void run()
+    {
+        try
+        {
+            // Displaying the thread that is running
+            System.out.println ("Thread " +
+                  Thread.currentThread().getId() +
+                  " is running");
+ 
+        }
+        catch (Exception e)
+        {
+            // Throwing an exception
+            System.out.println ("Exception is caught");
+        }
+    }
+}
+ 
+// Main Class
+public class Multithread
+{
+    public static void main(String[] args)
+    {
+        int n = 8; // Number of threads
+        for (int i=0; i<8; i++)
+        {
+            MultithreadingDemo object = new MultithreadingDemo();
+            object.start();
+        }
+    }
+}
+
+```
+
+If we create a class that implements ```java.lang.Runnable``` interface, we need to override the ```run()``` method. Then a ```Thread``` object is instantiated and the ```start()``` method is called.
+
+```java
+// Java code for thread creation by implementing
+// the Runnable Interface
+class MultithreadingDemo implements Runnable
+{
+    public void run()
+    {
+        try
+        {
+            // Displaying the thread that is running
+            System.out.println ("Thread " +
+                                Thread.currentThread().getId() +
+                                " is running");
+ 
+        }
+        catch (Exception e)
+        {
+            // Throwing an exception
+            System.out.println ("Exception is caught");
+        }
+    }
+}
+ 
+// Main Class
+class Multithread
+{
+    public static void main(String[] args)
+    {
+        int n = 8; // Number of threads
+        for (int i=0; i<8; i++)
+        {
+            Thread object = new Thread(new MultithreadingDemo());
+            object.start();
+        }
+    }
+}
+```
+
 #### How is multitasking accomplished?
+
+To accomplish multiple tasks by mulitple threads you have multiple ```run()``` methods.
+
+```java
+class Simple1 extends Thread{  
+ public void run(){  
+   System.out.println("task one");  
+ }  
+}  
+  
+class Simple2 extends Thread{  
+ public void run(){  
+   System.out.println("task two");  
+ }  
+}  
+  
+ class TestMultitasking3{  
+ public static void main(String args[]){  
+  Simple1 t1=new Simple1();  
+  Simple2 t2=new Simple2();  
+  
+  t1.start();  
+  t2.start();  
+ }  
+}  
+```
