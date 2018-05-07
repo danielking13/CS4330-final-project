@@ -314,7 +314,7 @@ Automatic reference counting manages object life cycles by keeping track of all 
 
 #### How are values compared? (i.e. comparing two strings)
 
-## Which does the language use? (null/nil/etc)
+### Which does the language use? (null/nil/etc)
 
 C# uses the ```csharp null ``` keyword as a literal that represnts a null reference.
 
@@ -388,25 +388,71 @@ Exception caught: System.DivideByZeroException: Attempted to divide by zero.
 at ...
 Result: 0
 ```
-#### Lambda expressions, closures, or functions as types
+### Lambda expressions, closures, or functions as types
 
+C# supprts first class functions, or functions as types.
+
+Using anonymous methods:
+```csharp
+Func<string,string> myFunc = delegate(string var1)
+                                {
+                                    return "some value";   
+                                };
+```
+
+Using lambdas:
+```csharp
+Func<string,string> myFunc = var1 => "some value";
+```
+The C# compiler detects when a delegate forms a closure which is passed out of the current scope and it promotes the delegate, and the associated local variables into a comiler generated class. You can use closures like this:
+
+```csharp
+static void Main(string[] args)
+{
+    var inc = GetAFunc();
+    Console.WriteLine(inc(5));
+    Console.WriteLine(inc(6));
+}
+
+public static Func<int,int> GetAFunc()
+{
+    var myVar = 1;
+    Func<int, int> inc = delegate(int var1)
+                            {
+                                myVar = myVar + 1;
+                                return var1 + myVar;
+                            };
+    return inc;
+}
+```
 ## Implementation of listeners and event handlers
 
-Singleton
+C# has an ```csharp EventHandler ```. C#'s EventHandler is a delegate or strongly typed pointer to method that handles an event.
 
-* How is a singleton implemented?
-* Can it be made thread-safe?
-* Can the singleton instance be lazily instantiated?
+```csharp
+Button.Click += new EventHandler(MyButton_Click); 
 
-Procedural programming
+private void MyButton_Click(object sender, EventArgs e)
+{
+    doSomething();
+}
+```
 
-* Does the language support procedural programming?
+## Singleton
 
-Functional programming
+#### How is a singleton implemented?
+#### Can it be made thread-safe?
+#### Can the singleton instance be lazily instantiated?
 
-* Does the language support functional programming?
+## Procedural programming
 
-Multithreading
+#### Does the language support procedural programming?
 
-* Threads or thread-like abilities
-* How is multitasking accomplished?
+## Functional programming
+
+#### Does the language support functional programming?
+
+## Multithreading
+
+#### Threads or thread-like abilities
+#### How is multitasking accomplished?
