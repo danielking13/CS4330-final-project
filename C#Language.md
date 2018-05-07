@@ -375,7 +375,7 @@ C# has NullRefereceExceptions that occur when you try to use a method with the v
 
 Exceptions handling is built upon 'try', 'catch', 'finally', and 'throw'.
 
-| Classes   | About  |
+| Name   | About  |
 |---|---|
 |  try   | A try block identifies a block of code for which particular exceptions is activated. It is followed by one or more catch blocks. |
 |  catch |  A program catches an exception with an exception handler at the place in a program where you want to handle the problem. The catch keyword indicates the catching of an exception. |
