@@ -36,7 +36,7 @@ namespace MyApplication
 #### How are name spaces used?
 They are used for file organization and to allow for classes to have the
 same name. It also gives the C# compiler context for which class it is
-supposed to be using. The *using* keyword can be used to tell the compiler
+supposed to be using. The ```using``` keyword can be used to tell the compiler
 explicitly what namespaces you will be using in your program so that you
 don't have to type out the names.
 For example:
@@ -141,7 +141,7 @@ class Car
 
 ## Instance reference name in data type (class)
 #### this? self?
-C# uses this to refer to a class data type as follows:
+C# uses ```this``` to refer to a class data type as follows:
 ```csharp
 public Employee(string name, string alias)
 {
@@ -153,11 +153,11 @@ public Employee(string name, string alias)
 
 ## Properties
 #### Getters and setters…write your own or built in?
-
+Can be written yourself or left to be done by the compiler. (See below examples)
 
 #### Backing variables?
 Can be explicitly declared or left to be done by the compiler. If you need
-more complex logic the first example is how you should implement it.   
+more complex logic, the first example is how you should implement it.   
 
 ```csharp
 public class Date
@@ -288,9 +288,9 @@ class ExtensionMethods2
 | MethodInfo  | This class contains information for a given method. |
 | ConstructorInfo  | This class contains information for a given constructor. |
 
-* How is reflection used?
+#### How is reflection used?
 
-Reflection is used in C# to retrieve metadata on types at runtime. Reflection is used to inspect metadata of the types in your program at runtime. So you can retrieve information on the loaded assemblies and the types defined in them.
+Reflection is used in C# to retrieve metadata on types at runtime. Reflection is used to inspect metadata of the types in your program at runtime, so you can retrieve information on the loaded assemblies and the types defined in them.
 
 ## Memory management
 
@@ -439,7 +439,7 @@ Result: 0
 ```
 ## Lambda expressions, closures, or functions as types
 
-C# supprts first class functions, or functions as types.
+C# supports first class functions or functions as types.
 
 Using anonymous methods:
 ```csharp
