@@ -25,7 +25,7 @@ removing the hassle of lower level tasks such as memory management.
 ## Unique features of the language
 
 #### Does the language have any particularly unique features?
-Not particularly. The main thing is that it is Platform Indepedent/Architecture Neutral, which is
+Not particularly. The main thing is that it is Platform Independent/Architecture Neutral, which is
 fairly rare for languages.
 
 ## Name spaces
@@ -101,7 +101,9 @@ An instance of a class is created as follows:
 ```
 
 #### Destructing/de-initializing
-
+Java does not have an explicit destructor; however, it does have a method that
+can be used sparingly to help clean up the object. It is not very reliable,
+but can be used in a worst case scenario as follows:
 ```java
   class MyClass {
 
@@ -115,7 +117,7 @@ An instance of a class is created as follows:
 
 ## Instance reference name in data type (class)
 #### this? self?
-Java uses this to refer to a class data type as follows:
+Java uses ```this``` to refer to a class data type as follows:
 ```java
 public class Employee {
     public Employee(string name, string alias) {
@@ -128,9 +130,10 @@ public class Employee {
 
 ## Properties
 #### Getters and setters…write your own or built in?
+Write your own as seen below:
 ```java
 public class Data {
-    private int month = 7; //backing variable
+    private int month = 7;
 
     public int getMonth() {
       return month;
@@ -162,7 +165,7 @@ public class Person {
 }
 ```
 
-Interfaces / protocols
+## Interfaces / protocols
 
 #### What does the language support?
 Interfaces
@@ -204,13 +207,13 @@ class Sparrow extends Bird {
 ## Reflection
 
 #### What reflection abilities are supported?
-The required classes for reflection are in the java.lang.reflect package. 
- Relfection can be used to get the following information:
+The required classes for reflection are in the java.lang.reflect package.
+Reflection can be used to get the following information:
 
 | Information  | About  |
 |---|---|
 |  Class   | The getClass() method is used to get the name of the class to which an object belongs.  |
-|  Contructors |  The getConstructors() method is used to get the public constructors of the class to which an object belongs. |
+|  Constructors |  The getConstructors() method is used to get the public constructors of the class to which an object belongs. |
 | Methods | The getMethods() method is used to get the public methods of the class to which an objects belongs. |
 |  Parameters  | getDeclaredMethod() : To create an object of method to be invoked. |
 | Fields  | getDeclaredMethod() : To create an object of method to be invoked. |
@@ -223,7 +226,7 @@ Reflection is used to get information about the class to which an object belongs
 
 #### How is it handled?
 
-Memory allocated on the heap is managed automatically. The heap is created when the JVM starts and increases or decreases in size while an application runs. 
+Memory allocated on the heap is managed automatically. The heap is created when the JVM starts and increases or decreases in size while an application runs.
 
 #### How does it work?
 
@@ -252,7 +255,7 @@ There is no automatic reference counting in Java. The garbage collector does the
 
 #### Which does the language use? (null/nil/etc)
 
-Java uses null.
+Java uses ```null```.
 
 #### Does the language have features for handling null/nil references?
 
@@ -280,7 +283,7 @@ There are three categories of exceptions in Java:
 |  Unchecked Exceptions |  An unchecked exception is an exception that occurs at the time of execution. These are also called as Runtime  |
 | Exceptions | These include programming bugs, such as logic errors or improper use of an API. Runtime exceptions are ignored at the time of compilation.  |
 
-Exceptions are handled with the true, catch, throw, and finally keywords.
+Exceptions are handled with the ```true```, ```catch```, ```throw```, and ```finally``` keywords.
 
 ```java
 try {
@@ -298,7 +301,7 @@ try {
 
 ## Lambda expressions, closures, or functions as types
 
-Java implements closures, but it is limited compared to other languages. Java uses lambda expressions and anonymous classes. These can only access the final variables of the enclosing scope. Java only saves the value of free variables to let them be used inside lambda expressions. The compiler limites the type of variable that can be used inside lambda expressons to only final and effectivley final ones.
+Java implements closures, but it is limited compared to other languages. Java uses lambda expressions and anonymous classes. These can only access the final variables of the enclosing scope. Java only saves the value of free variables to let them be used inside lambda expressions. The compiler limits the type of variable that can be used inside lambda expressions to only final and effectively final ones.
 
 ## Implementation of listeners and event handlers
 
@@ -346,7 +349,7 @@ A singleton class has:
 
 Yes, by using a synchronized keyword to prevent multiple threads from accessing the singleton instance while a thread is inside the method to get the singleton instance:
 
-```java 
+```java
 public static volatile SingletonExample getSingletonInstance() {
         if (null == singletonInstance) {
             synchronized (SingletonExample.class){
@@ -402,7 +405,7 @@ Java is not a functional programming language, but has support for functional pr
 #### Threads or thread-like abilities
 
 Multithreading is supported in Java. Threads are created by extending the ```Thread``` class and implementing the   ```Runnable``` interface.
-When creating a class that extends ```java.lang.Thread``` we can override the ```run()``` method in the class to start the life of a thread. An object of our class is created and the ```start()``` method is called. 
+When creating a class that extends ```java.lang.Thread``` we can override the ```run()``` method in the class to start the life of a thread. An object of our class is created and the ```start()``` method is called.
 
 ```java
 // Java code for thread creation by extending
@@ -417,7 +420,7 @@ class MultithreadingDemo extends Thread
             System.out.println ("Thread " +
                   Thread.currentThread().getId() +
                   " is running");
- 
+
         }
         catch (Exception e)
         {
@@ -426,7 +429,7 @@ class MultithreadingDemo extends Thread
         }
     }
 }
- 
+
 // Main Class
 public class Multithread
 {
@@ -458,7 +461,7 @@ class MultithreadingDemo implements Runnable
             System.out.println ("Thread " +
                                 Thread.currentThread().getId() +
                                 " is running");
- 
+
         }
         catch (Exception e)
         {
@@ -467,7 +470,7 @@ class MultithreadingDemo implements Runnable
         }
     }
 }
- 
+
 // Main Class
 class Multithread
 {
@@ -485,7 +488,7 @@ class Multithread
 
 #### How is multitasking accomplished?
 
-To accomplish multiple tasks by mulitple threads you have multiple ```run()``` methods.
+To accomplish multiple tasks by multiple threads you have multiple ```run()``` methods.
 
 ```java
 class Simple1 extends Thread{  
@@ -493,18 +496,18 @@ class Simple1 extends Thread{
    System.out.println("task one");  
  }  
 }  
-  
+
 class Simple2 extends Thread{  
  public void run(){  
    System.out.println("task two");  
  }  
 }  
-  
+
  class TestMultitasking3{  
  public static void main(String args[]){  
   Simple1 t1=new Simple1();  
   Simple2 t2=new Simple2();  
-  
+
   t1.start();  
   t2.start();  
  }  
